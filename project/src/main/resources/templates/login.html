@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sales Platform</title>
+</head>
+<body>
+
+<h1>Войти</h1>
+
+<p><a href="/registration" th:href="@{/registration}">Регистрация</a></p>
+
+<form method="POST" th:action="@{/login}" class="loginForm">
+    <label for="username">Логин:</label><br>
+    <input type="text" name="username" class="data"/><br/>
+
+    <label for="password">Пароль: </label><br>
+    <input type="password" name="password" class="data"/><br/>
+
+    <input type="submit" value="Войти" class="button"/>
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+</form>
+<br>
+<br>
+
+<div th:if="${param.error}" class="message">
+    Неверный никнейм или пароль.
+</div>
+<div th:if="${param.logout}" class="message">
+    Вы успешно вышли из аккаунта.
+</div>
+
+</body>
+</html>

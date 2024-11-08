@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sales Platform</title>
+</head>
+<body>
+<h4>Подробная информация о товаре</h4>
+<img th:if="${image}" th:src="'data:images/png;base64,' + ${image}"
+     alt="image" style="width: 300px"/>
+<p>Наименование: <span th:text="${product.title}"></span></p>
+<p>Описание: <span th:text="${product.description}"></span></p>
+<p>Цена: <span th:text="${product.price}"></span></p>
+<p>Город: <span th:text="${product.city}"></span></p>
+<p>Автор: <span th:text="${product.author}"></span></p>
+<p>Номер телефона: <span th:text="${product.phoneNumber}"></span></p>
+<p>Email: <span th:text="${product.email}"></span></p>
+<hr>
+<form th:action="@{/products}" class="find_products">
+    <button class="button">Найти объявление</button>
+</form>
+<hr>
+<form th:action="@{/users/main}" method="get">
+    <input type="submit" value="Мой профиль" class="button"/>
+</form>
+<hr>
+<form th:action="@{/logout}" method="post" class="sign_out">
+    <input type="submit" value="Выйти" class="button"/>
+</form>
+</body>
+</html>

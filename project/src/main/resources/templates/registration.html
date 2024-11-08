@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sales Platform</title>
+</head>
+<body>
+
+<h1>Регистрация</h1>
+
+<form method="POST" th:action="@{/registration}" th:object="${registerForm}">
+    <label for="username">Никнейм: </label><br>
+    <input type="text" th:field="*{username}" id="username"/>
+    <div class="validationError" th:text="${error_message}">Пользователь с таким логином уже существует</div>
+
+    <label for="password">Пароль: </label><br>
+    <input type="password" th:field="*{password}" id="password"/><br>
+
+    <label for="name">Имя: </label><br>
+    <input type="text" th:field="*{name}" id="name"/><br>
+
+    <label for="lastname">Фамилия: </label><br>
+    <input type="text" th:field="*{lastname}" id="lastname"/><br>
+
+    <label for="phoneNumber">Номер телефона: </label><br>
+    <input type="text" th:field="*{phoneNumber}" id="phoneNumber"/><br>
+
+    <label for="email">email: </label><br>
+    <input type="text" th:field="*{email}" id="email"/><br>
+
+    <input type="submit" value="Зарегистрироваться" class="register_button"/>
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+</form>
+</body>
+</html>

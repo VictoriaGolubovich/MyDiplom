@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: project
+  datasource:
+    url: jdbc:mysql://localhost:3306/my_db
+    username: root
+    password: password
+    #    driver-class-name: com.mysql.cj.jdbc.Driver
+    database-platform: org.hibernate.dialect.MySQLDialect
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
